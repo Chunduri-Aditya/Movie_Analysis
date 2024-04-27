@@ -4,3 +4,9 @@ pytest
 pytest-timeout
 requests
 beautifulsoup4
+pandas
+json
+matplotlib
+seaborn
+wordcloud
+textblob
