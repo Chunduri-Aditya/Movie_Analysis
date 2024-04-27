@@ -14,6 +14,7 @@ This project explores the potential influence of Rotten Tomatoes reviews on IMDb
 To set up the project environment and run the analysis, follow these steps:
 
 1. **Install required Python libraries**
+
 pip install -r requirements.txt
 
 ## Data Setup
