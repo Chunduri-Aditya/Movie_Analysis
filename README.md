@@ -19,3 +19,26 @@ git clone https://github.com/dsci510-20241-ambite/project-Chunduri-Aditya.git
 # Install required Python libraries
 pip install -r requirements.txt
 
+## Data Sources
+- **IMDb Top 250 Movies**: Provides titles, years, and ratings of the top 250 movies as rated by IMDb users.
+  - Data scraping method: BeautifulSoup for static content extraction.
+  - Source: [IMDb Top 250](https://www.imdb.com/chart/top)
+
+- **Rotten Tomatoes Reviews**: Contains extensive user-generated reviews and ratings.
+  - Data scraping method: Selenium for dynamic content extraction.
+  - Source: [Rotten Tomatoes](https://www.rottentomatoes.com)
+
+- **Kaggle Movie Dataset**: Used for additional metadata and supplementary data.
+  - Acquisition method: Download from Kaggle datasets.
+  - Source: [The Movies Dataset on Kaggle](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=movies_metadata.csv)
+  - Drive link: [Dataset used from Kaggle from the above link](https://drive.google.com/file/d/1exuG8tHxqiY7BiDZ5jKgsddOOoPIaBj2/view?usp=sharing)
+
+
+## Results and Discussion
+This project includes a detailed analysis report and visualizations that demonstrate the findings. The correlation between Rotten Tomatoes sentiments and IMDb ratings is discussed with statistical evidence and visual aids.
+
+## Acknowledgments
+This project is created as part of the coursework for DSCI 510 at the University of Southern California. Data used in this project is sourced from publicly available data on IMDb, Rotten Tomatoes, and Kaggle.
+
+## Author
+- Aditya Chunduri
