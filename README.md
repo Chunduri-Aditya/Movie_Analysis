@@ -12,9 +12,6 @@ This project explores the potential influence of Rotten Tomatoes reviews on IMDb
 
 ## Installation Instructions
 To set up the project environment and run the analysis, follow these steps:
-```bash
-# Clone the repository
-git clone https://github.com/dsci510-20241-ambite/project-Chunduri-Aditya.git
 
 # Install required Python libraries
 pip install -r requirements.txt
