@@ -1,5 +1,5 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/qAF9nhzI)
-# Project Name
+# Analyzing the Influence of Rotten Tomatoes Reviews on IMDb Movie Ratings
 
 **Detailed guidelines are posted on DEN under the `project` folder.**
 
