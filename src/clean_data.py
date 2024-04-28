@@ -32,6 +32,6 @@ def clean_data(imdb_movies_list, movie_reviews, movies_metadata):
     ]
     
     final_data = final_merged_data[columns_to_keep]
-    final_data.to_csv('/Users/chunduri/DSCI-510 Project/Data/final_data.csv', index=False)
+    final_data.to_csv('data/processed/final_data.csv', index=False)
     return final_data
 
