@@ -5,19 +5,33 @@ Author: < Student Name>
 """
 import json
 
-def rename_columns(imdb_movies_list, movie_reviews, movies_metadata):
-    imdb_movies_list.rename(columns={"Movie Name": "movie_title"}, inplace=True)
-    movie_reviews.rename(columns={"movie_name": "movie_title"}, inplace=True)
-    movies_metadata.rename(columns={"title": "movie_title"}, inplace=True)
+def rename_columns(df, new_column_names):
+    df.rename(columns=new_column_names, inplace=True)
 
 def extract_genres(genres_str):
     try:
         genres_list = json.loads(genres_str.replace("'", '"'))
         genres_names = [genre['name'] for genre in genres_list]
-        return ", ".join(genres_names)  
+        return ", ".join(genres_names)
     except:
         return None
 
-def clean_genres(final_merged_data):
+def clean_data(imdb_movies_list, movie_reviews, movies_metadata):
+    rename_columns(imdb_movies_list, {"Movie Name": "movie_title"})
+    rename_columns(movie_reviews, {"movie_name": "movie_title"})
+    rename_columns(movies_metadata, {"title": "movie_title"})
+    
+    merged_reviews = pd.merge(imdb_movies_list, movie_reviews, on="movie_title", how="inner")
+    final_merged_data = pd.merge(merged_reviews, movies_metadata, on="movie_title", how="inner")
+
     final_merged_data['cleaned_genres'] = final_merged_data['genres'].apply(extract_genres)
-    return final_merged_data
+    
+    columns_to_keep = [
+        'movie_title', 'rating', 'genres', 'budget', 'revenue', 
+        'review_text', 'year', 'runtime', 'vote_average', 'vote_count', 'cleaned_genres'
+    ]
+    
+    final_data = final_merged_data[columns_to_keep]
+    final_data.to_csv('/Users/chunduri/DSCI-510 Project/Data/final_data.csv', index=False)
+    return final_data
+
