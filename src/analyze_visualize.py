@@ -3,12 +3,6 @@ Analyze the data to answer the project specific questions
 
 Author: < Student Name >
 """
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from textblob import TextBlob
-from wordcloud import WordCloud
-
 def analyze_visualize(final_data):
     # Histogram of movie ratings
     plt.figure(figsize=(10, 6))
