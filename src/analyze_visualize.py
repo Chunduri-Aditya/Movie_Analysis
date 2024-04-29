@@ -1,8 +1,25 @@
 """
-Analyze the data to answer the project specific questions
+Analyze and visualize the data to answer the project-specific questions.
+Assumes that the processed data is available in the data/processed folder.
 
-Author: < Student Name >
+Author: Chunduri Aditya
 """
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+from wordcloud import WordCloud
+
+def generate_wordcloud(data, title):
+    text = ' '.join(review for review in data)
+    wordcloud = WordCloud(width=800, height=400, background_color='black').generate(text)
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.title(title)
+    plt.show()
+
 def analyze_visualize(final_data):
     # Histogram of movie ratings
     plt.figure(figsize=(10, 6))
@@ -47,26 +64,8 @@ def analyze_visualize(final_data):
     plt.grid(True)
     plt.show()
 
-    # Pairplot of selected numeric columns
-    numeric_cols = ['rating', 'budget', 'revenue', 'runtime', 'vote_average', 'vote_count']
-    pairplot_data = final_data[numeric_cols].dropna()
-    sns.pairplot(pairplot_data)
-    plt.show()
-
-    # Boxplot of ratings by genre
-    expanded_genres = final_data['cleaned_genres'].dropna().str.split(', ').apply(pd.Series).stack().reset_index(level=1, drop=True)
-    genre_ratings = final_data.join(expanded_genres.rename('Genre')).reset_index()
-    top_genres = genres_df['Genre'].value_counts().index[:10]
-    filtered_genre_ratings = genre_ratings[genre_ratings['Genre'].isin(top_genres)]
-    plt.figure(figsize=(14, 8))
-    sns.boxplot(data=filtered_genre_ratings, x='rating', y='Genre', palette='cool')
-    plt.title('Distribution of Ratings by Genre')
-    plt.xlabel('Rating')
-    plt.ylabel('Genre')
-    plt.grid(True)
-    plt.show()
-
     # Correlation matrix heatmap
+    numeric_cols = ['rating', 'budget', 'revenue', 'runtime', 'vote_average', 'vote_count']
     corr_matrix = final_data[numeric_cols].corr()
     plt.figure(figsize=(10, 8))
     sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap='coolwarm')
@@ -83,29 +82,15 @@ def analyze_visualize(final_data):
     plt.grid(True)
     plt.show()
 
-    # Boxplot of sentiment polarity by genre
-    genre_sentiment = final_data.join(expanded_genres.rename('Genre'))
-    top_genres = genre_sentiment['Genre'].value_counts().index[:10]
-    filtered_genre_sentiment = genre_sentiment[genre_sentiment['Genre'].isin(top_genres)]
-    plt.figure(figsize=(14, 8))
-    sns.boxplot(data=filtered_genre_sentiment, x='sentiment_polarity', y='Genre', palette='autumn')
-    plt.title('Distribution of Sentiment Polarity by Genre')
-    plt.xlabel('Sentiment Polarity')
-    plt.ylabel('Genre')
-    plt.grid(True)
-    plt.show()
+def main():
+    processed_data_dir = 'data/processed'
+    data_file = os.path.join(processed_data_dir, 'final_data.csv')
+    
+    # Read processed data
+    final_data = pd.read_csv(data_file)
+    
+    # Perform analysis and visualization
+    analyze_visualize(final_data)
 
-    # Generate word clouds for positive and negative sentiments
-    positive_reviews = final_data[final_data['sentiment_polarity'] > 0.5]['review_text']
-    negative_reviews = final_data[final_data['sentiment_polarity'] < -0.5]['review_text']
-    generate_wordcloud(positive_reviews, 'Word Cloud for Positive Reviews')
-    generate_wordcloud(negative_reviews, 'Word Cloud for Negative Reviews')
-
-def generate_wordcloud(data, title):
-    text = ' '.join(review for review in data)
-    wordcloud = WordCloud(width=800, height=400, background_color='black').generate(text)
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    plt.title(title)
-    plt.show()
+if __name__ == "__main__":
+    main()
