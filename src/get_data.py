@@ -1,23 +1,24 @@
 """
-Download the data and store it in the data/raw folder
+Download the data and store it in the data/raw folder.
+Assumes that data is manually placed in the correct directory.
 
-Author: < Student Name >
+Author: Chunduri Aditya
 """
 
-from src.utils.helper import helper_function_name
-
-result = helper_function_name(argument=False)
-print(result)
-
 import pandas as pd
+import os
 
 def main():
-    # Read data from existing CSV files
-    imdb_data = pd.read_csv('data/raw/imdb_movies_list.csv')
-    rotten_tomatoes_data = pd.read_csv('data/raw/movie_reviews.csv')
-    movies_metadata = pd.read_csv('data/raw/movies_metadata_kaggle.csv', low_memory=False)
+    data_dir = 'data/raw'
+    # Ensure the data directory exists
+    os.makedirs(data_dir, exist_ok=True)
 
-    # Your further processing code goes here
+    # Read data from existing CSV files
+    imdb_data = pd.read_csv(os.path.join(data_dir, 'imdb_movies_list.csv'))
+    rotten_tomatoes_data = pd.read_csv(os.path.join(data_dir, 'movie_reviews.csv'))
+    movies_metadata = pd.read_csv(os.path.join(data_dir, 'movies_metadata_kaggle.csv'), low_memory=False)
+
+    # Further processing code goes here (optional)
 
 if __name__ == "__main__":
     main()
