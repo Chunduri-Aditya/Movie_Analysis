@@ -1,7 +1,6 @@
 """
 Integrates all the data into a format that can be easily analyzed.
 This will probably take the form of merging several Pandas DataFrames.
-
 Author: Chunduri Aditya
 """
 import pandas as pd
