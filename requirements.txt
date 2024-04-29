@@ -5,6 +5,7 @@ pytest-timeout
 requests
 beautifulsoup4
 pandas
+numpy
 json
 matplotlib
 seaborn
