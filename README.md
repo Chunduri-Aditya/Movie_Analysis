@@ -8,7 +8,7 @@ This project explores the potential influence of Rotten Tomatoes reviews on IMDb
 - To collect data related to movie ratings and reviews from IMDb and Rotten Tomatoes using automated web scraping.
 - To perform sentiment analysis on Rotten Tomatoes reviews to assess their sentiment score.
 - To analyze the correlation between the sentiment scores from reviews and the IMDb ratings.
-- To visualize the relationships and provide insights that can help movie industry stakeholders understand audience sentiment impacts.
+- To visualize the relationships and provide insights that can help movie industry stakeholders understand how audience sentiment impacts cinematic success.
 
 ## Installation Instructions
 To set up the project environment and run the analysis, follow these steps:
@@ -32,6 +32,7 @@ To set up the data for this project, please follow these steps:
 - Visit the following Google Drive link to access the `movies_metadata.csv`: [Movies Metadata Dataset](https://drive.google.com/yourlinkhere).
 - Download the dataset and place it in the `data/raw/` directory of your local project repository.
 - This dataset features comprehensive movie metadata, including titles, genres, budgets, revenues, and ratings. It's essential for analyzing the correlations between a movie's financial performance and its reception among audiences.
+- A curated subset of this dataset, tailored to support the project's analytical needs, will be available in the repository under `data/raw/` upon upload.
 
 Ensure all data files are located in the `data/raw/` directory before running any scripts.
 
