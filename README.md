@@ -31,6 +31,7 @@ To set up the data for this project, please follow these steps:
 2. **Movies Metadata**:
 - Visit the following Google Drive link to access the `movies_metadata.csv`: [Movies Metadata Dataset](https://drive.google.com/yourlinkhere).
 - Download the dataset and place it in the `data/raw/` directory of your local project repository.
+- This dataset features comprehensive movie metadata, including titles, genres, budgets, revenues, and ratings. It's essential for analyzing the correlations between a movie's financial performance and its reception among audiences.
 
 Ensure all data files are located in the `data/raw/` directory before running any scripts.
 
